@@ -1,0 +1,63 @@
+import random
+
+cuvant = open("cuvinte_de_verificat.txt", "r", encoding="utf-8")
+words = []
+for line in cuvant:
+    line = line.split(";")[2].rstrip("\n")
+    words.append(line)
+
+incercari = 0
+for word in words:
+    vocale = ['A', 'E', 'I', 'O', 'U', 'Ă' , 'Î', 'Â']
+    consoane = [ 'B', 'C', 'D', 'F', 'G', 'H',  'L', 'M', 'N', 'P', 'R', 'S', 'Ș', 'T', 'Ț', 'V','J', 'K', 'X', 'Y', 'Z', 'W', 'Q']
+
+    cuvinte = []
+    for i in cuvinte:
+        if word in cuvinte:
+            word = random.choice(words)
+
+    cuv = []
+    for i in word:
+        cuv.append(i)
+    ghiceste = []
+    for i in cuv:
+        ghiceste.append(" _ ")
+    for i in range(len(cuv)):
+        if cuv[i] == cuv[0] or cuv[i] == cuv[len(cuv)-1]:
+            ghiceste[i] = cuv[i]
+            if cuv[i] in vocale:
+                vocale.remove(cuv[i])
+            elif cuv[i] in consoane:
+                consoane.remove(cuv[i])
+    print("Cuvant:", ghiceste)
+
+    litere_utilizare = []
+    while ghiceste != cuv:
+        if len(vocale):
+            c = random.choice(vocale)
+            while c in litere_utilizare:
+                if c in litere_utilizare:
+                    c = random.choice(vocale)
+                else:
+                    litere_utilizare.append(c)
+            vocale.remove(c)
+        elif len(consoane):
+            c = random.choice(consoane)
+            while c in litere_utilizare:
+                if c in litere_utilizare:
+                    c = random.choice(vocale)
+                else:
+                    litere_utilizare.append(c)
+            consoane.remove(c)
+
+        for i in range(len(cuv)):
+            if cuv[i] == c:
+                print("Încercat:", c)
+                print("Corect.")
+                ghiceste[i] = c
+                incercari -= 1
+                print(ghiceste)
+        incercari += 1
+    print("Găsit:", word)
+    print("\n")
+print("Total:", incercari)
