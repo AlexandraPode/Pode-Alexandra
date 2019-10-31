@@ -8,8 +8,8 @@ for line in cuvant:
 
 incercari = 0
 for word in words:
-    vocale = ['A', 'E', 'I', 'O', 'U', 'Ă' , 'Î', 'Â']
-    consoane = [ 'B', 'C', 'D', 'F', 'G', 'H',  'L', 'M', 'N', 'P', 'R', 'S', 'Ș', 'T', 'Ț', 'V','J', 'K', 'X', 'Y', 'Z', 'W', 'Q']
+    vocale = ['A', 'Ă', 'E', 'I', 'O', 'U', 'Î', 'Â']
+    consoane = [ 'C', 'D', 'B', 'F', 'T', 'L', 'M', 'N', 'G', 'P', 'R', 'H', 'S', 'Ș', 'Ț', 'V','J', 'K', 'X', 'Y', 'Z', 'W', 'Q']
 
     cuvinte = []
     for i in cuvinte:
